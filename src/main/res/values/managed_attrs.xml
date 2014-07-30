@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="name" format="string"/>
+    <attr name="property" format="string"/>
+    <attr name="list" format="reference"/>
+
+    <declare-styleable name="ManagedButton">
+        <attr name="name"/>
+        <attr name="property"/>
+    </declare-styleable>
+    <declare-styleable name="ManagedDropDown">
+        <attr name="name"/>
+        <attr name="property"/>
+        <attr name="list"/>
+    </declare-styleable>
+    <declare-styleable name="ManagedEditText">
+        <attr name="name"/>
+        <attr name="property"/>
+    </declare-styleable>
+</resources>
