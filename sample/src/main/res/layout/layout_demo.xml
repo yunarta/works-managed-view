@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:works="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="2.5dp">
+
+    <view
+        android:id="@+id/info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        class="works.ManagedEditText"
+        works:name="info"
+        works:property="text"
+        android:minWidth="200dp"
+        android:layout_margin="2.5dp" />
+
+    <view
+        android:id="@+id/info_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        class="works.ManagedDropDown"
+        works:name="info"
+        works:property="list"
+        android:minWidth="200dp"
+        android:layout_margin="2.5dp" />
+
+    <view
+        android:id="@+id/info_listResource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        class="works.ManagedDropDown"
+        works:name="info"
+        works:property="listResource"
+        works:list="@array/listResources"
+        android:minWidth="200dp"
+        android:layout_margin="2.5dp" />
+
+    <view
+        android:id="@+id/info_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        class="works.ManagedButton"
+        works:name="info"
+        works:property="date"
+        android:minWidth="200dp"
+        android:layout_margin="2.5dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Print Data"
+        android:id="@+id/btn_print"
+        android:layout_marginLeft="2.5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="2.5dp"
+        android:layout_marginBottom="2.5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/log"
+        android:layout_margin="2.5dp" />
+</LinearLayout>

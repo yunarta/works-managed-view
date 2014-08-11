@@ -14,14 +14,19 @@
  * limitations under the License.
  */
 
-package com.mobilesolutionworks.android.managedview;
+package com.mobilesolutionworks.android.managedview.test;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 /**
- * Created by yunarta on 30/5/14.
+ * Created by yunarta on 11/8/14.
  */
-public interface IObjectProvider
-{
-    void onPropertyChanged(String name, String property, String value);
+public class DemoInFragmentActivity extends FragmentActivity {
 
-    Object getProperty(String name, String property);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_fragment);
+    }
 }

@@ -14,14 +14,24 @@
  * limitations under the License.
  */
 
-package com.mobilesolutionworks.android.managedview;
+package works;
+
+import android.content.Context;
+import android.util.AttributeSet;
 
 /**
- * Created by yunarta on 30/5/14.
+ * Created by yunarta on 11/8/14.
  */
-public interface IObjectProvider
-{
-    void onPropertyChanged(String name, String property, String value);
+public class ManagedDropDown extends com.mobilesolutionworks.android.managedview.widget.ManagedDropDown {
+    public ManagedDropDown(Context context) {
+        super(context);
+    }
 
-    Object getProperty(String name, String property);
+    public ManagedDropDown(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public ManagedDropDown(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
 }

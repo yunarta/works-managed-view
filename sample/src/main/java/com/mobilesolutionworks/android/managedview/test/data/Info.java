@@ -14,14 +14,30 @@
  * limitations under the License.
  */
 
-package com.mobilesolutionworks.android.managedview;
+package com.mobilesolutionworks.android.managedview.test.data;
+
+import java.util.Date;
 
 /**
- * Created by yunarta on 30/5/14.
+ * Created by yunarta on 11/8/14.
  */
-public interface IObjectProvider
-{
-    void onPropertyChanged(String name, String property, String value);
+public class Info {
 
-    Object getProperty(String name, String property);
+    public String text;
+
+    public Date date;
+
+    public String list;
+
+    public String listResource;
+
+    @Override
+    public String toString() {
+        return "Info{" +
+                "text='" + text + '\'' +
+                ", date=" + date +
+                ", list='" + list + '\'' +
+                ", listResource='" + listResource + '\'' +
+                '}';
+    }
 }
