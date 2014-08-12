@@ -30,13 +30,6 @@ import com.mobilesolutionworks.android.managedview.R;
  */
 public class ManagedButton extends Button
 {
-    @Override
-    public void computeScroll()
-    {
-        super.computeScroll();
-        Log.d("ManagedButton", "invalided");
-    }
-
     protected IObjectProvider mProvider;
 
     protected String mName;
