@@ -60,7 +60,7 @@ public class ManagedButton extends Button
             return;
         }
 
-        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ManagedDropDown);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ManagedButton);
         if (ta != null)
         {
             int n = ta.getIndexCount();
