@@ -20,7 +20,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.Button;
 import com.mobilesolutionworks.android.managedview.IObjectProvider;
 import com.mobilesolutionworks.android.managedview.R;
@@ -69,13 +68,13 @@ public class ManagedButton extends Button
                 int attr = ta.getIndex(i);
                 switch (attr)
                 {
-                    case R.styleable.ManagedDropDown_name:
+                    case R.styleable.ManagedButton_name:
                     {
                         mName = ta.getString(attr);
                         break;
                     }
 
-                    case R.styleable.ManagedDropDown_property:
+                    case R.styleable.ManagedButton_property:
                     {
                         mProperty = ta.getString(attr);
                         break;
