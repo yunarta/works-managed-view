@@ -16,6 +16,7 @@
 
 package com.mobilesolutionworks.android.managedview;
 
+import android.util.Log;
 import com.mobilesolutionworks.android.managedview.converter.Converter;
 
 import java.lang.reflect.Field;

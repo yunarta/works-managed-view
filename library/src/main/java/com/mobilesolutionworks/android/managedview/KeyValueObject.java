@@ -44,34 +44,28 @@ public class KeyValueObject implements Parcelable
     }
 
     @Override
-    public int describeContents()
-    {
+    public int describeContents() {
         return 0;
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags)
-    {
-        dest.writeString(id);
-        dest.writeString(name);
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.id);
+        dest.writeString(this.name);
     }
 
-    public static final Parcelable.Creator<KeyValueObject> CREATOR = new Parcelable.Creator<KeyValueObject>()
-    {
-        public KeyValueObject createFromParcel(Parcel in)
-        {
-            return new KeyValueObject(in);
+    private KeyValueObject(Parcel in) {
+        this.id = in.readString();
+        this.name = in.readString();
+    }
+
+    public static final Creator<KeyValueObject> CREATOR = new Creator<KeyValueObject>() {
+        public KeyValueObject createFromParcel(Parcel source) {
+            return new KeyValueObject(source);
         }
 
-        public KeyValueObject[] newArray(int size)
-        {
+        public KeyValueObject[] newArray(int size) {
             return new KeyValueObject[size];
         }
     };
-
-    private KeyValueObject(Parcel in)
-    {
-        id = in.readString();
-        name = in.readString();
-    }
 }

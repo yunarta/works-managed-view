@@ -127,7 +127,11 @@ public class ManagedDropDown extends Button
     protected void onAttachedToWindow()
     {
         super.onAttachedToWindow();
-        if (mProvider != null && !TextUtils.isEmpty(mProperty))
+        updateValue();
+    }
+
+    public void updateValue() {
+        if (mProvider != null && !TextUtils.isEmpty(mProperty) && mList != null)
         {
             Object value = mProvider.getProperty(mName, mProperty);
             if (value != null)
