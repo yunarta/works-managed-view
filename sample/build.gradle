@@ -26,7 +26,7 @@ android {
     buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion 10
+        minSdkVersion 13
         targetSdkVersion project.ANDROID_BUILD_TARGET_SDK_VERSION
         versionCode 1
         versionName "1.0"
@@ -42,5 +42,5 @@ android {
 
 dependencies {
     compile project(":works-managed-view")
-    compile 'com.android.support:support-v13:19.0.0'
+    compile 'com.android.support:support-v4:20.0.0'
 }
