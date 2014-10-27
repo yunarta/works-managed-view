@@ -1,12 +1,8 @@
 apply plugin: 'com.android.library'
 
-repositories {
-    mavenCentral()
-}
-
 android {
-    compileSdkVersion 20
-    buildToolsVersion '20.0.0'
+    compileSdkVersion 21
+    buildToolsVersion "21.0.2"
 
     def androidTargetSdkVersion = compileSdkVersion
 
@@ -22,6 +18,7 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             runProguard false
