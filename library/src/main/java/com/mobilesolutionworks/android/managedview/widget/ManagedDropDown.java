@@ -21,6 +21,7 @@ import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.Button;
+
 import com.mobilesolutionworks.android.managedview.IObjectProvider;
 import com.mobilesolutionworks.android.managedview.KeyValueObject;
 import com.mobilesolutionworks.android.managedview.R;
@@ -31,8 +32,7 @@ import java.util.List;
 /**
  * Created by yunarta on 30/5/14.
  */
-public class ManagedDropDown extends Button
-{
+public class ManagedDropDown extends Button {
     protected IObjectProvider mProvider;
 
     protected String mName;
@@ -41,105 +41,74 @@ public class ManagedDropDown extends Button
 
     protected List<KeyValueObject> mList;
 
-    public ManagedDropDown(Context context)
-    {
+    public ManagedDropDown(Context context) {
         super(context);
         initializeManaged(context, null);
     }
 
-    public ManagedDropDown(Context context, AttributeSet attrs)
-    {
+    public ManagedDropDown(Context context, AttributeSet attrs) {
         super(context, attrs);
         initializeManaged(context, attrs);
     }
 
-    public ManagedDropDown(Context context, AttributeSet attrs, int defStyle)
-    {
+    public ManagedDropDown(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initializeManaged(context, attrs);
     }
 
-    public List<KeyValueObject> getList()
-    {
+    public List<KeyValueObject> getList() {
         return mList;
     }
 
-    public void setList(List<KeyValueObject> list)
-    {
+    public void setList(List<KeyValueObject> list) {
         mList = list;
     }
 
-    private void initializeManaged(Context context, AttributeSet attrs)
-    {
+    private void initializeManaged(Context context, AttributeSet attrs) {
         if (isInEditMode()) {
             return;
         }
 
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ManagedDropDown);
-        if (ta != null)
-        {
+        if (ta != null) {
             int n = ta.getIndexCount();
-            for (int i = 0; i < n; i++)
-            {
+            for (int i = 0; i < n; i++) {
                 int attr = ta.getIndex(i);
-                switch (attr)
-                {
-                    case R.styleable.ManagedDropDown_name:
-                    {
-                        mName = ta.getString(attr);
-                        break;
-                    }
+                if (attr == R.styleable.ManagedDropDown_name) {
+                    mName = ta.getString(attr);
+                } else if (attr == R.styleable.ManagedDropDown_property) {
+                    mProperty = ta.getString(attr);
+                } else if (attr == R.styleable.ManagedDropDown_list) {
+                    int id = ta.getResourceId(attr, -1);
+                    if (id != -1) {
+                        mList = new ArrayList<KeyValueObject>();
 
-                    case R.styleable.ManagedDropDown_property:
-                    {
-                        mProperty = ta.getString(attr);
-                        break;
-                    }
-
-                    case R.styleable.ManagedDropDown_list:
-                    {
-                        int id = ta.getResourceId(attr, -1);
-                        if (id != -1)
-                        {
-                            mList = new ArrayList<KeyValueObject>();
-
-                            if (!isInEditMode())
-                            {
-                                String[] array = getResources().getStringArray(id);
-                                for (int j = 0; j < array.length; j++)
-                                {
-                                    if (!TextUtils.isEmpty(array[j]))
-                                    {
-                                        mList.add(new KeyValueObject(String.valueOf(j), array[j]));
-                                    }
+                        if (!isInEditMode()) {
+                            String[] array = getResources().getStringArray(id);
+                            for (int j = 0; j < array.length; j++) {
+                                if (!TextUtils.isEmpty(array[j])) {
+                                    mList.add(new KeyValueObject(String.valueOf(j), array[j]));
                                 }
                             }
                         }
-                        break;
                     }
-
                 }
             }
         }
     }
 
     @Override
-    protected void onAttachedToWindow()
-    {
+    protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         updateValue();
     }
 
     public void updateValue() {
-        if (mProvider != null && !TextUtils.isEmpty(mProperty) && mList != null)
-        {
+        if (mProvider != null && !TextUtils.isEmpty(mProperty) && mList != null) {
             Object value = mProvider.getProperty(mName, mProperty);
-            if (value != null)
-            {
-                for (KeyValueObject kvo : mList)
-                {
-                    if (kvo.id.equals(value))
-                    {
+            if (value != null) {
+                for (KeyValueObject kvo : mList) {
+                    if (kvo.id.equals(value)) {
                         setText(kvo.name);
                         return;
                     }
@@ -149,20 +118,15 @@ public class ManagedDropDown extends Button
     }
 
     @Override
-    protected void onDetachedFromWindow()
-    {
+    protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
     }
 
-    public void setText(CharSequence text, BufferType type)
-    {
+    public void setText(CharSequence text, BufferType type) {
         super.setText(text, type);
-        if (mProvider != null && !TextUtils.isEmpty(mProperty))
-        {
-            for (KeyValueObject kvo : mList)
-            {
-                if (kvo.name.equals(text.toString()))
-                {
+        if (mProvider != null && !TextUtils.isEmpty(mProperty)) {
+            for (KeyValueObject kvo : mList) {
+                if (kvo.name.equals(text.toString())) {
                     mProvider.onPropertyChanged(mName, mProperty, kvo.id);
                     return;
                 }
@@ -170,8 +134,7 @@ public class ManagedDropDown extends Button
         }
     }
 
-    public void setProvider(IObjectProvider provider)
-    {
+    public void setProvider(IObjectProvider provider) {
         mProvider = provider;
     }
 }

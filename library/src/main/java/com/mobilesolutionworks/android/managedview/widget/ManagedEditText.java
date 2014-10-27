@@ -69,19 +69,10 @@ public class ManagedEditText extends EditText
             for (int i = 0; i < n; i++)
             {
                 int attr = ta.getIndex(i);
-                switch (attr)
-                {
-                    case R.styleable.ManagedEditText_name:
-                    {
-                        mName = ta.getString(attr);
-                        break;
-                    }
-
-                    case R.styleable.ManagedEditText_property:
-                    {
-                        mProperty = ta.getString(attr);
-                        break;
-                    }
+                if (attr == R.styleable.ManagedEditText_name) {
+                    mName = ta.getString(attr);
+                } else if (attr == R.styleable.ManagedEditText_property) {
+                    mProperty = ta.getString(attr);
                 }
             }
         }
