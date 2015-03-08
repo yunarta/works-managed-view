@@ -94,6 +94,7 @@ public class ManagedDropDown extends Button {
                     }
                 }
             }
+            ta.recycle();
         }
     }
 

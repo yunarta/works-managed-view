@@ -75,6 +75,7 @@ public class ManagedEditText extends EditText
                     mProperty = ta.getString(attr);
                 }
             }
+            ta.recycle();
         }
     }
 
