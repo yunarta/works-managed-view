@@ -4,7 +4,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
-      defaultConfig {
+    defaultConfig {
         minSdkVersion 13
         targetSdkVersion 19
 
@@ -14,10 +14,8 @@ android {
 
     buildTypes {
         release {
-//            runProguard false
-//            if (runProguard) {
-//                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-//            }
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
